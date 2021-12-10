@@ -13,17 +13,20 @@ import chalk from 'chalk';
  *    MacOS/
  *    Resources/
  */
-// directories
+// macOS bundle directories
 const appName = 'Chrome\ Debugger';
 const bundleDir = path.join(os.homedir(), 'Applications', `${appName}.app`);
 const contentsDir = path.join(bundleDir, 'Contents');
 const macosDir = path.join(contentsDir, 'MacOS');
 const resourcesDir = path.join(contentsDir, 'Resources');
 
-// files
+// macOS bundle destination files
 const executableFile = path.join(macosDir, appName);
 const infoPlistFile = path.join(contentsDir, 'Info.plist');
 const iconFile = path.join(resourcesDir, 'icon.icns');
+
+// local resources directory
+const localResourcesDir = path.resolve(__dirname, '..', 'resources');
 
 try {
 	// create MacOS dir
@@ -37,18 +40,19 @@ try {
 	}
 
 	// copy property list to Contents
-	fs.copyFileSync('resources/Info.plist', infoPlistFile);
+	fs.copyFileSync(path.join(localResourcesDir, 'Info.plist'), infoPlistFile);
 
 	// copy icon to Resources
-	fs.copyFileSync('resources/icon.png', iconFile);
+	fs.copyFileSync(path.join(localResourcesDir, 'icon.png'), iconFile);
 
 	// copy executable shell script to MacOS
-	fs.copyFileSync('resources/executable.bash', executableFile);
+	fs.copyFileSync(path.join(localResourcesDir, 'executable.bash'), executableFile);
 
 	// make it executable
 	fs.chmodSync(executableFile, '775');
 
 	console.log(chalk.green(`Created Chrome Debugger at ${chalk.underline(bundleDir)}`));
 } catch (error) {
-	console.log(chalk.red('ERROR'), error);
+	console.log(chalk.bgRed('ERROR'));
+	console.log(error);
 }

@@ -14,9 +14,13 @@
     "type": "git",
     "url": "git+https://github.com/zirkelc/chrome-debugger-node.git"
   },
-  "keywords": [],
+  "keywords": [
+    "chrome",
+    "debugger",
+    "remote-debugging"
+  ],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/zirkelc/chrome-debugger-node/issues"
   },
