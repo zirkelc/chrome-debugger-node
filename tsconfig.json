@@ -1,0 +1,15 @@
+{
+  "extends": "@tsconfig/node14/tsconfig.json", // https://github.com/tsconfig/bases#node-14-tsconfigjson
+  "compilerOptions": {
+    "removeComments": true,
+    "allowJs": true,
+    "sourceMap": true,
+    "outDir": "dist",
+  },
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules/**/*"
+  ],
+}
