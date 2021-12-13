@@ -25,8 +25,8 @@ const executableFile = path.join(macosDir, appName);
 const infoPlistFile = path.join(contentsDir, 'Info.plist');
 const iconFile = path.join(resourcesDir, 'icon.icns');
 
-// local resources directory
-const localResourcesDir = path.resolve(__dirname, '..', 'resources');
+// local macos resources directory
+const localResourcesDir = path.resolve(__dirname, '..', 'resources', 'macos');
 
 try {
 	// create MacOS dir
@@ -39,14 +39,14 @@ try {
 		fs.mkdirSync(resourcesDir, { recursive: true });
 	}
 
-	// copy property list to Contents
+	// copy info property list to Contents
 	fs.copyFileSync(path.join(localResourcesDir, 'Info.plist'), infoPlistFile);
 
 	// copy icon to Resources
 	fs.copyFileSync(path.join(localResourcesDir, 'icon.png'), iconFile);
 
 	// copy executable shell script to MacOS
-	fs.copyFileSync(path.join(localResourcesDir, 'executable.bash'), executableFile);
+	fs.copyFileSync(path.join(localResourcesDir, 'start.sh'), executableFile);
 
 	// make it executable
 	fs.chmodSync(executableFile, '775');
