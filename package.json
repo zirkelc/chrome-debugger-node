@@ -1,6 +1,6 @@
 {
   "name": "create-chrome-debugger",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Create a Chrome App Shortcut to Start Chrome with Remote Debugging Enabled",
   "main": "dist/index.js",
   "bin": "dist/index.js",
