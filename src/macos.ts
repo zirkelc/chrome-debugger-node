@@ -2,6 +2,8 @@ import os from 'os';
 import fs from 'fs';
 import path from 'path';
 import chalk from 'chalk';
+import util from 'util';
+import { config } from './vscode';
 
 export function createApp(): void {
   /**
@@ -14,7 +16,7 @@ export function createApp(): void {
    *    Resources/
    */
   const appName = 'Chrome Debugger';
-  const bundleDir = path.join(os.homedir(), 'Applications', `${appName}.app`);
+  const bundleDir = path.join('/Applications', `${appName}.app`);
   const contentsDir = path.join(bundleDir, 'Contents');
   const macosDir = path.join(contentsDir, 'MacOS');
   const resourcesDir = path.join(contentsDir, 'Resources');
@@ -28,7 +30,10 @@ export function createApp(): void {
   const localResourcesDir = path.resolve(__dirname, '..', 'resources', 'macos');
 
   if (fs.existsSync(bundleDir)) {
-    console.log(chalk.yellow('WARN'), `App at "${bundleDir}" already exists. Delete it manuallay and start again!`);
+    console.log(
+      chalk.yellow('WARN'),
+      `App at ${chalk.yellow(bundleDir)} already exists. Delete it manuallay and start again!`,
+    );
     return;
   }
 
@@ -51,7 +56,13 @@ export function createApp(): void {
     // make it executable
     fs.chmodSync(executableFile, '775');
 
-    console.log(chalk.green('SUCCESS'), `Created Chrome Debugger at "${bundleDir}"`);
+    console.log(chalk.green(`Created Chrome Debugger at ${chalk.green(bundleDir)}`));
+    console.log(`Quit Chrome completely and start it again with the new Chrome Debugger to enable remote debugging!\n`);
+
+    console.log(`Add this ${chalk.blue('VSCode debug config')} to .vscode/launch.json in your project:`);
+    console.log(JSON.stringify(config, null, 2));
+
+    console.log(`\nHappy debugging!`);
   } catch (error) {
     console.log(chalk.red('ERROR'), error);
   }
