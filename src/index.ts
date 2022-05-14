@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import chalk from 'chalk';
-import { createApp } from './macos';
+import { createApp } from './macos.js';
 
 const { platform } = process;
 
