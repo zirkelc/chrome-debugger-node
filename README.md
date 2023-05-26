@@ -1,3 +1,5 @@
+![icon](https://github.com/zirkelc/chrome-debugger-node/assets/950244/6b96d692-a906-4e51-b7d7-1dd3e40d9331)
+
 # Create Chrome Debugger
 This tool automates the process of creating a Chrome App Shortcut, configured to launch Chrome in Remote Debugging Mode.
 
