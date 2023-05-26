@@ -1,7 +1,7 @@
 ![icon](https://github.com/zirkelc/chrome-debugger-node/assets/950244/6b96d692-a906-4e51-b7d7-1dd3e40d9331)
 
 # Create Chrome Debugger
-This tool automates the process of creating a Chrome App Shortcut, configured to launch Chrome in Remote Debugging Mode.
+This tool automates the process of creating a Chrome app shortcut, configured to launch Chrome in remote debugging mode.
 
 ## Why use this tool?
 While debugging JavaScript applications using editors such as VSCode, the Chrome browser must be launched with **remote debugging enabled**. This usually involves manually starting the browser from the command line with a specific flag (`--remote-debugging-port=9222`). This tool simplifies this process by creating a readily clickable **Chrome Debugger** app that launches Chrome with the needed command-line flag.
@@ -11,7 +11,7 @@ You can find more details about remote debugging in this [post](https://blog.chr
 ## Demonstration
 The following short video shows how to set up the Chrome Debugger and debug a React app from VSCode in no time:
 
-https://github.com/zirkelc/chrome-debugger-node/assets/950244/b079efd2-5edc-4d20-9f82-7cfa233f70c6
+https://github.com/zirkelc/chrome-debugger-node/assets/950244/0a8a4366-005b-4ea5-b4ad-2aeb4e6aec5a
 
 ## Prerequisites
 You must have Google Chrome installed on your machine. The tool assumes Chrome is installed at the following locations:
