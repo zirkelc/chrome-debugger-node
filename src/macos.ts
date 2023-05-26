@@ -63,7 +63,7 @@ export function createApp(): void {
     console.log(`Created ${chalk.green.bold(appName)} at ${chalk.green.bold(appDir)}`);
     console.log(`Quit Chrome completely and start it again with the new Chrome Debugger to enable remote debugging!\n`);
 
-    console.log(`Add this ${chalk.blue('VSCode debug config')} to .vscode/launch.json in your project:`);
+    console.log(`Add this VSCode debug config to ${chalk.underline('.vscode/launch.json')} in your project:`);
     console.log(JSON.stringify(config, null, 2));
 
     console.log(`\nHappy debugging!`);
