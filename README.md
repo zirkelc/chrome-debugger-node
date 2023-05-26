@@ -1,49 +1,49 @@
 # Create Chrome Debugger
-Create a Chrome App Shortcut to Start Google Chrome in Remote Debugging Mode.
+This tool automates the process of creating a Chrome App Shortcut, configured to launch Chrome in Remote Debugging Mode.
 
-## Rationale
-In order to debug JavaScript applications from Editors such as VSCode, the Chrome browser must be started with **remote debugging enabled**. However, that's only possible when starting the browser from the command line and appending the flag for the remote debugging port  `--remote-debugging-port=9222`.
+## Why use this tool?
+While debugging JavaScript applications using editors such as VSCode, the Chrome browser must be launched with **remote debugging enabled**. This usually involves manually starting the browser from the command line with a specific flag (`--remote-debugging-port=9222`). This tool simplifies this process by creating a readily clickable **Chrome Debugger** app that launches Chrome with the needed command-line flag.
 
-This package automates this process by creating a clickable **Chrome Debugger** app that starts the already installed Chrome app with this command line flag.
+You can find more details about remote debugging in this [post](https://blog.chromium.org/2011/05/remote-debugging-with-chrome-developer.html) on the Chromium blog.
 
-See this [post](https://blog.chromium.org/2011/05/remote-debugging-with-chrome-developer.html) on the Chromium blog for more information about remote debugging.
+## Demonstration
+The following short video shows how to set up the Chrome Debugger and debug a React app from VSCode in no time:
 
-## Demo
-This short video demonstrates how to setup the Chrome Debugger and to debug a React app from VSCode in just a few seconds.
+https://github.com/zirkelc/chrome-debugger-node/assets/950244/b079efd2-5edc-4d20-9f82-7cfa233f70c6
 
-[![Demo](https://vimeo.com/709988945)](https://vimeo.com/709988945)
-
-## Requirements
-Google Chrome must be installed on your machine. The following install locations are assumed:
+## Prerequisites
+You must have Google Chrome installed on your machine. The tool assumes Chrome is installed at the following locations:
 - macOS: **/Applications/Google Chrome**
-- Linux: Currently not supported. Feel free to send a PR!
-- Windows: Currently not supported. Feel free to send a PR!
+- Linux: Support is currently unavailable. We welcome your contributions!
+- Windows: Support is currently unavailable. We welcome your contributions!
 
-## Install
-The package can be easily installed and executed with **NPX**:
+## Installation
+Install and run the package swiftly with `npx`:
+
 ```sh
 npx create-chrome-debugger
 ```
 
-Alternatively, it can be installed as a global package with **NPM** and then executed:
-```
+Or, install it globally using `npm` and then execute:
+
+```sh
 npm install -g create-chrome-debugger
 create-chrome-debugger
 ```
 
-A new Chrome Debugger app shortcut will be created in your Application Library. You can move it to any other location, for example to your Dock.
+Upon successful installation, a new Chrome Debugger app shortcut will appear in your Application Library. You can relocate it as per your convenience, such as to your Dock.
 
-## Usage
+## How to use it?
 
 ### Chrome
 
-Click on the new Chrome Debugger app. A new instance of Chrome will be launched with remote debugging enabled. On the first start, Chrome will ask you set it as default browser. You can skip this step.
+Click the Chrome Debugger app to launch a new Chrome instance with remote debugging enabled. Upon first launch, Chrome might prompt to set it as the default browser - this step can be disregarded.
 
-You can verify that remote debugging is enabled by opening the URL [`chrome://version/`](chrome://version/) in Chrome. It should look like this:
+To confirm that remote debugging is enabled, navigate to `chrome://version` in Chrome. It should display like this:
 
-...
+![image](https://github.com/zirkelc/chrome-debugger-node/assets/950244/96143b3a-901a-4d6a-93a2-023bba802bac)
 
-The Chrome instance launched by the Chrome Debugger operates in its own user data directory. This means that it has its own history, bookmarks, cookies, etc. and does not interfere with your regular Chrome instance. The user data directory is located at `/Users/<username>/Library/Application Support/Google/Chrome Debugger`.
+The Chrome instance launched by Chrome Debugger functions in its own user data directory, ensuring isolated history, bookmarks, cookies, etc. It will not interfere with your regular Chrome instance. The user data directory is found at `/Users/<username>/Library/Application Support/Google/Chrome Debugger`.
 
 ```sh
 # print the location of the user data directory
@@ -51,7 +51,8 @@ echo "$HOME/Library/Application Support/Google/Chrome Debugger"
 ```
 
 ### VSCode
-In order to debug JavaScript apps from VSCode, a debug configuration **launch.json** must be created inside the **.vscode** folder:
+For debugging JavaScript apps from VSCode, a debug configuration **launch.json** must be created inside the **.vscode** folder:
+
 ```json
 {
   "version": "0.2.0",
@@ -67,14 +68,15 @@ In order to debug JavaScript apps from VSCode, a debug configuration **launch.js
   ]
 }
 ```
-For more information please refer to this [post](https://dev.to/zirkelc/debug-a-react-app-in-vscode-21ga).
 
-## Change Log
+For more insights, refer to this [guide](https://dev.to/zirkelc/debug-a-react-app-in-vscode-21ga) or the official [VSCode documentation](https://code.visualstudio.com/docs/editor/debugging).
+
+## Release Notes
 - v1.1.x
-  - Change VSCode debug configuration `"type": "pwa-chrome"` to `"type": "chrome"`
-  - Add `--user-data-dir` command line flag as recommended by [Chromium](https://blog.chromium.org/2011/05/remote-debugging-with-chrome-developer.html)
+  - Modified VSCode debug configuration `"type": "pwa-chrome"` to `"type": "chrome"`
+  - Added `--user-data-dir` command line flag as recommended by [Chromium](https://blog.chromium.org/2011/05/remote-debugging-with-chrome-developer.html)
 - v1.0.x - Initial release
 
 
-## Credits
-The original implementation and the Chrome Debugger icon come from [David Mann's StackOverflow post](https://stackoverflow.com/questions/51563287/how-to-make-chrome-always-launch-with-remote-debugging-port-flag/58457229#58457229).
+## Acknowledgments
+Credit for the initial implementation and the Chrome Debugger icon goes to [David Mann's StackOverflow post](https://stackoverflow.com/questions/51563287/how-to-make-chrome-always-launch-with-remote-debugging-port-flag/58457229#58457229).
